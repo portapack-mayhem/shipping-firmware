@@ -136,7 +136,7 @@ bool strEndsWith(const std::u16string& str, const std::u16string& suffix) {
 
 static void cmd_flash(BaseSequentialStream* chp, int argc, char* argv[]) {
     if (argc != 1) {
-        chprintf(chp, "Usage: flash /FIRMWARE/portapack-h1_h2-mayhem.bin\r\n");
+        chprintf(chp, "Usage: flash /FIRMWARE/portapack-shipping.bin\r\n");
         return;
     }
 

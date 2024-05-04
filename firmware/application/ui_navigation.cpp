@@ -813,13 +813,13 @@ SystemView::SystemView(
     constexpr Dim status_view_height = 16;
     constexpr Dim info_view_height = 16;
 
-    // add_child(&status_view);
-    // status_view.set_parent_rect(
-    //     {{0, 0},
-    //      {parent_rect.width(), status_view_height}});
-    // status_view.on_back = [this]() {
-    //     this->navigation_view.pop();
-    // };
+    add_child(&status_view);
+    status_view.set_parent_rect(
+        {{0, 0},
+         {parent_rect.width(), status_view_height}});
+    status_view.on_back = [this]() {
+        this->navigation_view.pop();
+    };
 
     add_child(&navigation_view);
     navigation_view.set_parent_rect(
@@ -839,10 +839,10 @@ SystemView::SystemView(
             info_view.refresh();
         }
 
-        // this->status_view.set_back_enabled(!this->navigation_view.is_top());
-        // this->status_view.set_title_image_enabled(this->navigation_view.is_top());
-        // this->status_view.set_title(new_view.title());
-        // this->status_view.set_dirty();
+        this->status_view.set_back_enabled(!this->navigation_view.is_top());
+        this->status_view.set_title_image_enabled(this->navigation_view.is_top());
+        this->status_view.set_title(new_view.title());
+        this->status_view.set_dirty();
     };
 
     navigation_view.push<SystemMenuView>();
@@ -850,9 +850,9 @@ SystemView::SystemView(
     // if (pmem::config_splash()) {
     //     navigation_view.push<BMPView>();
     // }
-    // status_view.set_back_enabled(false);
-    // status_view.set_title_image_enabled(true);
-    // status_view.set_dirty();
+    status_view.set_back_enabled(false);
+    status_view.set_title_image_enabled(true);
+    status_view.set_dirty();
 }
 
 Context& SystemView::context() const {
@@ -861,9 +861,9 @@ Context& SystemView::context() const {
 NavigationView* SystemView::get_navigation_view() {
     return &navigation_view;
 }
-// SystemStatusView* SystemView::get_status_view() {
-//     return &status_view;
-// }
+SystemStatusView* SystemView::get_status_view() {
+    return &status_view;
+}
 
 void SystemView::toggle_overlay() {
     static uint8_t last_perf_counter_status = shared_memory.request_m4_performance_counter;

@@ -98,10 +98,6 @@ class NavigationView : public View {
     bool is_top() const;
     bool is_valid() const;
 
-    Labels labels{
-        {{10 * 8, 3 * 16}, "Value", Color::light_grey()},
-    };
-
     template <class T, class... Args>
     T* push(Args&&... args) {
         return reinterpret_cast<T*>(push_view(std::unique_ptr<View>(new T(*this, std::forward<Args>(args)...))));
@@ -397,12 +393,12 @@ class SystemView : public View {
     void set_app_fullscreen(bool fullscreen);
 
     NavigationView* get_navigation_view();
-    // SystemStatusView* get_status_view();
+    SystemStatusView* get_status_view();
 
    private:
     uint8_t overlay_active{0};
 
-    // SystemStatusView status_view{navigation_view};
+    SystemStatusView status_view{navigation_view};
     InformationView info_view{navigation_view};
     DfuMenu overlay{navigation_view};
     DfuMenu2 overlay2{navigation_view};

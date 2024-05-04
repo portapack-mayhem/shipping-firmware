@@ -9,10 +9,10 @@ body:
          Thank you for taking the time to fill out an issue, this template is meant for any issues related to the Mayhem firmware.
               Before creating this issue, **do the following**: 
         * Read the Wiki on booting:
-        https://github.com/portapack-mayhem/mayhem-firmware/wiki/Won't-boot
+        https://github.com/portapack-mayhem/shipping-firmware/wiki/Won't-boot
 
         * Read:
-        https://github.com/portapack-mayhem/mayhem-firmware/wiki/Update-firmware
+        https://github.com/portapack-mayhem/shipping-firmware/wiki/Update-firmware
 
         * Watch carefully: https://www.youtube.com/watch?v=_zx4ZvurgOs
 
@@ -20,7 +20,7 @@ body:
         https://www.youtube.com/watch?v=kjFB58Y1TAo
 
         * Check hardware versions:
-        https://github.com/portapack-mayhem/mayhem-firmware/wiki/PortaPack-Versions
+        https://github.com/portapack-mayhem/shipping-firmware/wiki/PortaPack-Versions
   - type: textarea
     id: problem
     attributes:

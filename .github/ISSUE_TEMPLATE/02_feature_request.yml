@@ -7,7 +7,7 @@ body:
   attributes:
     value: |
       Thank you for taking the time to fill out an issue, this template is meant for any feature suggestions.
-      Please try the latest nightly release before submitting this, make sure it has not been implemented already. You can find the latest nightly version here: https://github.com/portapack-mayhem/mayhem-firmware/releases
+      Please try the latest nightly release before submitting this, make sure it has not been implemented already. You can find the latest nightly version here: https://github.com/portapack-mayhem/shipping-firmware/releases
 - type: textarea
   id: proposal
   attributes:

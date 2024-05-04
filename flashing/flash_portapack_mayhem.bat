@@ -15,7 +15,7 @@ REM Check if the firmware file exists
 if not exist portapack-shipping.bin (
     echo The firmware file "portapack-shipping.bin" does not exist.
     echo Please ensure that you have downloaded the latest release from:
-    echo https://github.com/portapack-mayhem/mayhem-firmware/releases/
+    echo https://github.com/portapack-mayhem/shipping-firmware/releases/
     echo.
     pause
     exit /b
@@ -23,6 +23,6 @@ if not exist portapack-shipping.bin (
 
 "utils/hackrf_update.exe" portapack-shipping.bin
 echo.
-echo If your device never boot after flashing, please refer to https://github.com/portapack-mayhem/mayhem-firmware/wiki/Won't-boot
+echo If your device never boot after flashing, please refer to https://github.com/portapack-mayhem/shipping-firmware/wiki/Won't-boot
 echo.
 pause

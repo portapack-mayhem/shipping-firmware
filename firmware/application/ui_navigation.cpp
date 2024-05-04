@@ -547,30 +547,17 @@ InformationView::InformationView(
         .foreground = Color::white(),
     };
 
-    add_children({&backdrop,
-                  &version,
-                  &ltime});
+    add_children({&help1, &help2, &help3});
 
-#if GCC_VERSION_MISMATCH
-    version.set_style(&Styles::yellow);
-#else
-    version.set_style(&style_infobar);
-#endif
-
-    if (firmware_checksum_error()) {
-        version.set("FLASH ERR");
-        version.set_style(&Styles::red);
-    }
-
-    ltime.set_style(&style_infobar);
+    help2.set_style(&Styles::blue);
     refresh();
     set_dirty();
 }
 
 void InformationView::refresh() {
-    ltime.set_hide_clock(pmem::hide_clock());
-    ltime.set_seconds_enabled(true);
-    ltime.set_date_enabled(pmem::clock_with_date());
+    // ltime.set_hide_clock(pmem::hide_clock());
+    // ltime.set_seconds_enabled(true);
+    // ltime.set_date_enabled(pmem::clock_with_date());
 }
 
 bool InformationView::firmware_checksum_error() {
@@ -839,24 +826,24 @@ SystemView::SystemView(
         {{0, status_view_height},
          {parent_rect.width(), static_cast<Dim>(parent_rect.height() - status_view_height)}});
 
-    // add_child(&info_view);
-    // info_view.set_parent_rect(
-    //     {{0, 19 * 16},
-    //      {parent_rect.width(), info_view_height}});
+    add_child(&info_view);
+    info_view.set_parent_rect(
+        {{0, 19 * 16},
+         {parent_rect.width(), info_view_height}});
 
-    // navigation_view.on_view_changed = [this](const View& new_view) {
-    //     if (!this->navigation_view.is_top()) {
-    //         remove_child(&info_view);
-    //     } else {
-    //         add_child(&info_view);
-    //         info_view.refresh();
-    //     }
+    navigation_view.on_view_changed = [this](const View& new_view) {
+        if (!this->navigation_view.is_top()) {
+            remove_child(&info_view);
+        } else {
+            add_child(&info_view);
+            info_view.refresh();
+        }
 
-    //     this->status_view.set_back_enabled(!this->navigation_view.is_top());
-    //     this->status_view.set_title_image_enabled(this->navigation_view.is_top());
-    //     this->status_view.set_title(new_view.title());
-    //     this->status_view.set_dirty();
-    // };
+        // this->status_view.set_back_enabled(!this->navigation_view.is_top());
+        // this->status_view.set_title_image_enabled(this->navigation_view.is_top());
+        // this->status_view.set_title(new_view.title());
+        // this->status_view.set_dirty();
+    };
 
     navigation_view.push<SystemMenuView>();
 

@@ -98,6 +98,10 @@ class NavigationView : public View {
     bool is_top() const;
     bool is_valid() const;
 
+    Labels labels{
+        {{10 * 8, 3 * 16}, "Value", Color::light_grey()},
+    };
+
     template <class T, class... Args>
     T* push(Args&&... args) {
         return reinterpret_cast<T*>(push_view(std::unique_ptr<View>(new T(*this, std::forward<Args>(args)...))));
@@ -314,19 +318,19 @@ class InformationView : public View {
     bool firmware_checksum_error();
 
    private:
-    // static constexpr auto version_string = "v1.4.4"; // This is commented out as we are now setting the version via ENV (VERSION_STRING=v1.0.0)
     NavigationView& nav_;
 
-    Rectangle backdrop{
-        {0, 0 * 16, 240, 16},
-        {33, 33, 33}};
+    Text help1{
+        {0 * CHARACTER_WIDTH, 23 * LINE_HEIGHT, 5 * CHARACTER_WIDTH, 1 * LINE_HEIGHT},
+        "Go to"};
 
-    Text version{
-        {2, 0, 11 * 8, 16},
-        VERSION_STRING};
+    Text help2{
+        {0 * CHARACTER_WIDTH, 24 * LINE_HEIGHT, 26 * CHARACTER_WIDTH, 1 * LINE_HEIGHT},
+        "https://release.hackrf.app"};
 
-    LiveDateTime ltime{
-        {86, 0, 19 * 8, 16}};
+    Text help3{
+        {0 * CHARACTER_WIDTH, 25 * LINE_HEIGHT, 24 * CHARACTER_WIDTH, 1 * LINE_HEIGHT},
+        "to download the firmware"};
 };
 
 class BMPView : public View {
@@ -399,7 +403,7 @@ class SystemView : public View {
     uint8_t overlay_active{0};
 
     // SystemStatusView status_view{navigation_view};
-    // InformationView info_view{navigation_view};
+    InformationView info_view{navigation_view};
     DfuMenu overlay{navigation_view};
     DfuMenu2 overlay2{navigation_view};
     NavigationView navigation_view{};

@@ -397,7 +397,7 @@ void EventDispatcher::handle_switches() {
             const auto event = static_cast<ui::KeyEvent>(i);
             if (!event_bubble_key(event)) {
                 if (switches_state[(size_t)ui::KeyEvent::Dfu]) {
-                    static_cast<ui::SystemView*>(top_widget)->toggle_overlay();
+                    // static_cast<ui::SystemView*>(top_widget)->toggle_overlay();
                 } else {
                     context.focus_manager().update(top_widget, event);
                 }

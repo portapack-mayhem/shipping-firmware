@@ -210,71 +210,71 @@ class SystemStatusView : public View {
         default_title,
     };
 
-    ImageButton button_title{
-        {2, 0, 80, 16},
-        &bitmap_titlebar_image,
-        Color::white(),
-        Color::dark_grey()};
+    // ImageButton button_title{
+    //     {2, 0, 80, 16},
+    //     &bitmap_titlebar_image,
+    //     Color::white(),
+    //     Color::dark_grey()};
 
     StatusTray status_icons{{screen_width, 0}};
 
-    ImageToggle toggle_speaker{
-        {0, 0, 2 * 8, 1 * 16},
-        &bitmap_icon_speaker_mute,
-        &bitmap_icon_speaker,
-        Color::light_grey(),
-        Color::dark_grey(),
-        Color::green(),
-        Color::dark_grey()};
+    // ImageToggle toggle_speaker{
+    //     {0, 0, 2 * 8, 1 * 16},
+    //     &bitmap_icon_speaker_mute,
+    //     &bitmap_icon_speaker,
+    //     Color::light_grey(),
+    //     Color::dark_grey(),
+    //     Color::green(),
+    //     Color::dark_grey()};
 
-    ImageToggle toggle_mute{
-        {0, 0, 2 * 8, 1 * 16},
-        &bitmap_icon_speaker_and_headphones_mute,
-        &bitmap_icon_speaker_and_headphones,
-        Color::light_grey(),
-        Color::dark_grey(),
-        Color::green(),
-        Color::dark_grey()};
+    // ImageToggle toggle_mute{
+    //     {0, 0, 2 * 8, 1 * 16},
+    //     &bitmap_icon_speaker_and_headphones_mute,
+    //     &bitmap_icon_speaker_and_headphones,
+    //     Color::light_grey(),
+    //     Color::dark_grey(),
+    //     Color::green(),
+    //     Color::dark_grey()};
 
-    ImageButton button_converter{
-        {0, 0, 2 * 8, 1 * 16},
-        &bitmap_icon_upconvert,
-        Color::light_grey(),
-        Color::dark_grey()};
+    // ImageButton button_converter{
+    //     {0, 0, 2 * 8, 1 * 16},
+    //     &bitmap_icon_upconvert,
+    //     Color::light_grey(),
+    //     Color::dark_grey()};
 
-    ImageToggle toggle_stealth{
-        {0, 0, 2 * 8, 1 * 16},
-        &bitmap_icon_stealth};
+    // ImageToggle toggle_stealth{
+    //     {0, 0, 2 * 8, 1 * 16},
+    //     &bitmap_icon_stealth};
 
-    ImageButton button_camera{
-        {0, 0, 2 * 8, 1 * 16},
-        &bitmap_icon_camera,
-        Color::white(),
-        Color::dark_grey()};
+    // ImageButton button_camera{
+    //     {0, 0, 2 * 8, 1 * 16},
+    //     &bitmap_icon_camera,
+    //     Color::white(),
+    //     Color::dark_grey()};
 
-    ImageButton button_sleep{
-        {0, 0, 2 * 8, 1 * 16},
-        &bitmap_icon_sleep,
-        Color::white(),
-        Color::dark_grey()};
+    // ImageButton button_sleep{
+    //     {0, 0, 2 * 8, 1 * 16},
+    //     &bitmap_icon_sleep,
+    //     Color::white(),
+    //     Color::dark_grey()};
 
-    ImageButton button_bias_tee{
-        {0, 0, 2 * 8, 1 * 16},
-        &bitmap_icon_biast_off,
-        Color::light_grey(),
-        Color::dark_grey()};
+    // ImageButton button_bias_tee{
+    //     {0, 0, 2 * 8, 1 * 16},
+    //     &bitmap_icon_biast_off,
+    //     Color::light_grey(),
+    //     Color::dark_grey()};
 
-    ImageButton button_clock_status{
-        {0, 0 * 16, 8, 1 * 16},
-        &bitmap_icon_clk_int,
-        Color::light_grey(),
-        Color::dark_grey()};
+    // ImageButton button_clock_status{
+    //     {0, 0 * 16, 8, 1 * 16},
+    //     &bitmap_icon_clk_int,
+    //     Color::light_grey(),
+    //     Color::dark_grey()};
 
-    ImageButton button_fake_brightness{
-        {0, 0, 2 * 8, 1 * 16},
-        &bitmap_icon_brightness,
-        Color::green(),
-        Color::dark_grey()};
+    // ImageButton button_fake_brightness{
+    //     {0, 0, 2 * 8, 1 * 16},
+    //     &bitmap_icon_brightness,
+    //     Color::green(),
+    //     Color::dark_grey()};
 
     SDCardStatusView sd_card_status_view{
         {0, 0 * 16, 2 * 8, 1 * 16}};

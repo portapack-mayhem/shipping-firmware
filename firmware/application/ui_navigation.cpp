@@ -211,7 +211,7 @@ SystemStatusView::SystemStatusView(
         &backdrop,
         &button_back,
         &title,
-        &button_title,
+        // &button_title,
         &status_icons,
     });
 
@@ -240,71 +240,71 @@ SystemStatusView::SystemStatusView(
             this->on_back();
     };
 
-    button_title.on_select = [this](ImageButton&) {
-        this->on_title();
-    };
+    // button_title.on_select = [this](ImageButton&) {
+    //     this->on_title();
+    // };
 
-    button_converter.on_select = [this](ImageButton&) {
-        this->on_converter();
-    };
+    // button_converter.on_select = [this](ImageButton&) {
+    //     this->on_converter();
+    // };
 
-    toggle_speaker.on_change = [this](bool v) {
-        pmem::set_config_speaker_disable(v);
-        audio::output::update_audio_mute();
-        refresh();
-    };
+    // toggle_speaker.on_change = [this](bool v) {
+    //     pmem::set_config_speaker_disable(v);
+    //     audio::output::update_audio_mute();
+    //     refresh();
+    // };
 
-    toggle_mute.on_change = [this](bool v) {
-        pmem::set_config_audio_mute(v);
-        audio::output::update_audio_mute();
-        refresh();
-    };
+    // toggle_mute.on_change = [this](bool v) {
+    //     pmem::set_config_audio_mute(v);
+    //     audio::output::update_audio_mute();
+    //     refresh();
+    // };
 
-    toggle_stealth.on_change = [this, &nav](bool v) {
-        pmem::set_stealth_mode(v);
-        if (nav.is_valid() && v) {
-            nav.display_modal(
-                "Stealth",
-                "You just enabled stealth mode.\n"
-                "When you transmit,\n"
-                "screen will turn off;\n");
-        }
-        refresh();
-    };
+    // toggle_stealth.on_change = [this, &nav](bool v) {
+    //     pmem::set_stealth_mode(v);
+    //     if (nav.is_valid() && v) {
+    //         nav.display_modal(
+    //             "Stealth",
+    //             "You just enabled stealth mode.\n"
+    //             "When you transmit,\n"
+    //             "screen will turn off;\n");
+    //     }
+    //     refresh();
+    // };
 
     battery_icon.on_select = [this]() { on_battery_details(); };
     battery_text.on_select = [this]() { on_battery_details(); };
 
-    button_fake_brightness.on_select = [this](ImageButton&) {
-        set_dirty();
-        pmem::toggle_fake_brightness_level();
-        refresh();
-        if (nullptr != parent()) {
-            parent()->set_dirty();  // The parent of NavigationView shal be the SystemView
-        }
-    };
+    // button_fake_brightness.on_select = [this](ImageButton&) {
+    //     set_dirty();
+    //     pmem::toggle_fake_brightness_level();
+    //     refresh();
+    //     if (nullptr != parent()) {
+    //         parent()->set_dirty();  // The parent of NavigationView shal be the SystemView
+    //     }
+    // };
 
-    button_bias_tee.on_select = [this](ImageButton&) {
-        this->on_bias_tee();
-    };
+    // button_bias_tee.on_select = [this](ImageButton&) {
+    //     this->on_bias_tee();
+    // };
 
-    button_camera.on_select = [this](ImageButton&) {
-        this->on_camera();
-    };
+    // button_camera.on_select = [this](ImageButton&) {
+    //     this->on_camera();
+    // };
 
-    button_sleep.on_select = [this](ImageButton&) {
-        DisplaySleepMessage message;
-        EventDispatcher::send_message(message);
-    };
+    // button_sleep.on_select = [this](ImageButton&) {
+    //     DisplaySleepMessage message;
+    //     EventDispatcher::send_message(message);
+    // };
 
-    button_clock_status.on_select = [this](ImageButton&) {
-        this->on_clk();
-    };
+    // button_clock_status.on_select = [this](ImageButton&) {
+    //     this->on_clk();
+    // };
 
-    // Initialize toggle buttons
-    toggle_speaker.set_value(pmem::config_speaker_disable());
-    toggle_mute.set_value(pmem::config_audio_mute());
-    toggle_stealth.set_value(pmem::stealth_mode());
+    // // Initialize toggle buttons
+    // toggle_speaker.set_value(pmem::config_speaker_disable());
+    // toggle_mute.set_value(pmem::config_audio_mute());
+    // toggle_stealth.set_value(pmem::stealth_mode());
 
     audio::output::stop();
     audio::output::update_audio_mute();
@@ -335,18 +335,18 @@ void SystemStatusView::refresh() {
     // NB: Order of insertion is the display order Left->Right.
     // TODO: Might be better to support hide and only add once.
     status_icons.clear();
-    if (!pmem::ui_hide_camera()) status_icons.add(&button_camera);
-    if (!pmem::ui_hide_sleep()) status_icons.add(&button_sleep);
-    if (!pmem::ui_hide_stealth()) status_icons.add(&toggle_stealth);
-    if (!pmem::ui_hide_converter()) status_icons.add(&button_converter);
-    if (!pmem::ui_hide_bias_tee()) status_icons.add(&button_bias_tee);
-    if (!pmem::ui_hide_clock()) status_icons.add(&button_clock_status);
-    if (!pmem::ui_hide_mute()) status_icons.add(&toggle_mute);
+    // if (!pmem::ui_hide_camera()) status_icons.add(&button_camera);
+    // if (!pmem::ui_hide_sleep()) status_icons.add(&button_sleep);
+    // if (!pmem::ui_hide_stealth()) status_icons.add(&toggle_stealth);
+    // if (!pmem::ui_hide_converter()) status_icons.add(&button_converter);
+    // if (!pmem::ui_hide_bias_tee()) status_icons.add(&button_bias_tee);
+    // if (!pmem::ui_hide_clock()) status_icons.add(&button_clock_status);
+    // if (!pmem::ui_hide_mute()) status_icons.add(&toggle_mute);
 
     // Display "Disable speaker" icon only if AK4951 Codec which has separate speaker/headphone control
-    if (audio::speaker_disable_supported() && !pmem::ui_hide_speaker()) status_icons.add(&toggle_speaker);
+    // if (audio::speaker_disable_supported() && !pmem::ui_hide_speaker()) status_icons.add(&toggle_speaker);
 
-    if (!pmem::ui_hide_fake_brightness()) status_icons.add(&button_fake_brightness);
+    // if (!pmem::ui_hide_fake_brightness()) status_icons.add(&button_fake_brightness);
     if (battery::BatteryManagement::isDetected()) {
         uint8_t percent = battery::BatteryManagement::getPercent();
         if (!pmem::ui_hide_battery_icon()) {
@@ -364,25 +364,25 @@ void SystemStatusView::refresh() {
     status_icons.update_layout();
 
     // Clock status
-    bool external_clk = portapack::clock_manager.get_reference().source == ClockManager::ReferenceSource::External;
-    button_clock_status.set_bitmap(external_clk ? &bitmap_icon_clk_ext : &bitmap_icon_clk_int);
-    button_clock_status.set_foreground(pmem::clkout_enabled() ? Color::green() : Color::light_grey());
+    // bool external_clk = portapack::clock_manager.get_reference().source == ClockManager::ReferenceSource::External;
+    // button_clock_status.set_bitmap(external_clk ? &bitmap_icon_clk_ext : &bitmap_icon_clk_int);
+    // button_clock_status.set_foreground(pmem::clkout_enabled() ? Color::green() : Color::light_grey());
 
     // Antenna DC Bias
-    if (portapack::get_antenna_bias()) {
-        button_bias_tee.set_bitmap(&bitmap_icon_biast_on);
-        button_bias_tee.set_foreground(Color::yellow());
-    } else {
-        button_bias_tee.set_bitmap(&bitmap_icon_biast_off);
-        button_bias_tee.set_foreground(Color::light_grey());
-    }
+    // if (portapack::get_antenna_bias()) {
+    //     button_bias_tee.set_bitmap(&bitmap_icon_biast_on);
+    //     button_bias_tee.set_foreground(Color::yellow());
+    // } else {
+    //     button_bias_tee.set_bitmap(&bitmap_icon_biast_off);
+    //     button_bias_tee.set_foreground(Color::light_grey());
+    // }
 
-    // Converter
-    button_converter.set_bitmap(pmem::config_updown_converter() ? &bitmap_icon_downconvert : &bitmap_icon_upconvert);
-    button_converter.set_foreground(pmem::config_converter() ? Color::red() : Color::light_grey());
+    // // Converter
+    // button_converter.set_bitmap(pmem::config_updown_converter() ? &bitmap_icon_downconvert : &bitmap_icon_upconvert);
+    // button_converter.set_foreground(pmem::config_converter() ? Color::red() : Color::light_grey());
 
-    // Fake Brightness
-    button_fake_brightness.set_foreground(pmem::apply_fake_brightness() ? Color::green() : Color::light_grey());
+    // // Fake Brightness
+    // button_fake_brightness.set_foreground(pmem::apply_fake_brightness() ? Color::green() : Color::light_grey());
 
     set_dirty();
 }
@@ -400,11 +400,11 @@ void SystemStatusView::set_back_hidden(bool new_value) {
 }
 
 void SystemStatusView::set_title_image_enabled(bool new_value) {
-    if (new_value) {
-        add_child(&button_title);
-    } else {
-        remove_child(&button_title);
-    }
+    // if (new_value) {
+    //     add_child(&button_title);
+    // } else {
+    //     remove_child(&button_title);
+    // }
 }
 
 void SystemStatusView::set_title(const std::string new_value) {

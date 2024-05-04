@@ -445,11 +445,11 @@ static void initialize_boot_splash_screen() {
     chThdSleepMilliseconds(17);
     portapack::backlight()->on();
 
-    painter.draw_bitmap(
-        {portapack::display.width() / 2 - 40, portapack::display.height() / 2 - 8},
-        ui::bitmap_titlebar_image,
-        ui::Color::white(),
-        ui::Color::black());
+    // painter.draw_bitmap(
+    //     {portapack::display.width() / 2 - 40, portapack::display.height() / 2 - 8},
+    //     ui::bitmap_titlebar_image,
+    //     ui::Color::white(),
+    //     ui::Color::black());
 }
 
 /* Clock scheme after exiting bootloader in SPIFI mode:

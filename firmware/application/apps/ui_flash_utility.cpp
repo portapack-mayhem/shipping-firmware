@@ -152,12 +152,12 @@ bool FlashUtilityView::flash_firmware(std::filesystem::path::string_type path) {
         path = extract_tar(u'/' + path, painter).native();
     }
 
-    if (path.empty() || !valid_firmware_file(path.c_str())) {
-        painter.fill_rectangle({0, 50, portapack::display.width(), 90}, ui::Color::black());
-        painter.draw_string({0, 60}, Styles::red, "BAD FIRMWARE FILE");
-        chThdSleepMilliseconds(5000);
-        return false;
-    }
+    // if (path.empty() || !valid_firmware_file(path.c_str())) {
+    //     painter.fill_rectangle({0, 50, portapack::display.width(), 90}, ui::Color::black());
+    //     painter.draw_string({0, 60}, Styles::red, "BAD FIRMWARE FILE");
+    //     chThdSleepMilliseconds(5000);
+    //     return false;
+    // }
     painter.fill_rectangle(
         {0, 0, portapack::display.width(), portapack::display.height()},
         ui::Color::black());

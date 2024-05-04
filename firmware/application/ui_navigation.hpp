@@ -393,13 +393,13 @@ class SystemView : public View {
     void set_app_fullscreen(bool fullscreen);
 
     NavigationView* get_navigation_view();
-    SystemStatusView* get_status_view();
+    // SystemStatusView* get_status_view();
 
    private:
     uint8_t overlay_active{0};
 
-    SystemStatusView status_view{navigation_view};
-    InformationView info_view{navigation_view};
+    // SystemStatusView status_view{navigation_view};
+    // InformationView info_view{navigation_view};
     DfuMenu overlay{navigation_view};
     DfuMenu2 overlay2{navigation_view};
     NavigationView navigation_view{};

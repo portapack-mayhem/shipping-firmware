@@ -241,7 +241,7 @@ set(CPPSRC
 	hw/touch_adc.cpp
 	ui_baseband_stats_view.cpp
 	ui_navigation.cpp
-	ui_playdead.cpp
+	# ui_playdead.cpp
 	ui_record_view.cpp
 	ui_sd_card_status_view.cpp
 	ui/ui_alphanum.cpp
@@ -329,7 +329,7 @@ set(CPPSRC
 	# apps/ui_test.cpp
 	apps/ui_text_editor.cpp
 	apps/ui_tone_search.cpp
-	apps/ui_touch_calibration.cpp
+	# apps/ui_touch_calibration.cpp
 	apps/ui_touchtunes.cpp
 	apps/ui_view_wav.cpp
 	apps/ui_weatherstation.cpp

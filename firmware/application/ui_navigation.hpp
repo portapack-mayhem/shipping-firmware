@@ -321,8 +321,8 @@ class InformationView : public View {
         "Go to"};
 
     Text help2{
-        {0 * CHARACTER_WIDTH, 24 * LINE_HEIGHT, 26 * CHARACTER_WIDTH, 1 * LINE_HEIGHT},
-        "https://release.hackrf.app"};
+        {0 * CHARACTER_WIDTH, 24 * LINE_HEIGHT, 29 * CHARACTER_WIDTH, 1 * LINE_HEIGHT},
+        "https://release.portapack.net"};
 
     Text help3{
         {0 * CHARACTER_WIDTH, 25 * LINE_HEIGHT, 24 * CHARACTER_WIDTH, 1 * LINE_HEIGHT},
